@@ -1,6 +1,63 @@
 
+<!-- Ações Rápidas -->
+<div class="container mb-4" style="margin-top: 2rem;">
+  <div class="mb-3">
+    <h5 style="font-weight:800; color:#1e293b;">Ações Rápidas</h5>
+  </div>
+  <div class="row g-3">
+    <!-- Encontrar Posto -->
+    <div class="col-6 col-md-3">
+      <a href="<?=URL?>/paginas/postos" class="text-decoration-none">
+        <div class="card shadow-sm p-3 h-100 text-center hover-shadow"
+          style="border-radius:20px; background:#e0f2fe; border:1px solid #d6e6f5; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="background:#bae6fd; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; margin:0 auto 8px;">
+            <img src="<?=URL?>/public/img/localizacao.png" alt="Encontrar Posto" width="22">
+          </div>
+          <h6 style="font-weight:700; color:#1e293b; font-size:0.9rem;">Encontrar Posto</h6>
+        </div>
+      </a>
+    </div>
+    <!-- Emergência -->
+    <div class="col-6 col-md-3">
+      <a href="<?=URL?>/paginas/emergencia" class="text-decoration-none">
+        <div class="card shadow-sm p-3 h-100 text-center hover-shadow"
+          style="border-radius:20px; background:#fafdff; border:1px solid #d6e6f5; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="background:#e0e7ef; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; margin:0 auto 8px;">
+            <img src="<?=URL?>/public/img/alarme.png" alt="Emergência" width="22">
+          </div>
+          <h6 style="font-weight:700; color:#1e293b; font-size:0.9rem;">Emergência</h6>
+        </div>
+      </a>
+    </div>
+    <!-- Suporte -->
+    <div class="col-6 col-md-3">
+      <a href="<?=URL?>/paginas/suporte" class="text-decoration-none">
+        <div class="card shadow-sm p-3 h-100 text-center hover-shadow"
+          style="border-radius:20px; background:#fafdff; border:1px solid #d6e6f5; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="background:#dbeafe; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; margin:0 auto 8px;">
+            <img src="<?=URL?>/public/img/suporte.png" alt="Suporte" width="22">
+          </div>
+          <h6 style="font-weight:700; color:#1e293b; font-size:0.9rem;">Suporte</h6>
+        </div>
+      </a>
+    </div>
+    <!-- Meu SUS Digital -->
+    <div class="col-6 col-md-3">
+      <a href="https://meususdigital.saude.gov.br/login" target="_blank" class="text-decoration-none">
+        <div class="card shadow-sm p-3 h-100 text-center hover-shadow"
+          style="border-radius:20px; background:#e0f2fe; border:1px solid #d6e6f5; cursor:pointer; transition:box-shadow 0.2s;">
+          <div style="background:#e0e7ef; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; margin:0 auto 8px;">
+            <img src="<?=URL?>/public/img/info.png" alt="Meu SUS Digital" width="22">
+          </div>
+          <h6 style="font-weight:700; color:#1e293b; font-size:0.9rem;">Meu SUS Digital</h6>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- Paleta branco-azul pastel com títulos e textos em azul escuro -->
-<div class="container mb-4" style="margin-top: 2.5rem;">
+<div class="container mb-4">
   <div class="row g-4">
     <!-- Campanhas Ativas -->
     <div class="col-12 col-md-6">
@@ -177,85 +234,6 @@
   </div>
 </div>
 <div id="notificacaoSidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(30,41,59,0.10); z-index:3999;" onclick="fecharNotificacaoSidebar()"></div>
-
-<script>
-  // Dados fictícios das notificações completas
-  const notificacoesSidebar = {
-    notificacao1: {
-      icone: "<?=URL?>/public/img/megafone.png",
-      titulo: "Vacinação contra gripe prorrogada",
-      resumo: "A campanha de vacinação contra gripe foi prorrogada até o dia 30/09.",
-      horario: "Hoje, 09:30",
-      texto: "A campanha de vacinação contra gripe foi prorrogada até o dia 30/09. Procure o posto mais próximo e mantenha sua vacinação em dia. Leve seu cartão de vacinação e documento com foto.",
-      local: "UBS Central",
-      data: "30/09/2025",
-      autor: "Secretaria Municipal de Saúde"
-    },
-    notificacao2: {
-      icone: "<?=URL?>/public/img/relogio.png",
-      titulo: "Alteração no horário do posto central",
-      resumo: "O posto central funcionará das 8h às 14h nesta semana.",
-      horario: "Ontem, 16:00",
-      texto: "Informamos que, excepcionalmente nesta semana, o posto central funcionará das 8h às 14h devido à manutenção elétrica. Para emergências, procure a UPA mais próxima.",
-      local: "UBS Central",
-      data: "27/09/2025",
-      autor: "Secretaria Municipal de Saúde"
-    },
-    notificacao3: {
-      icone: "<?=URL?>/public/img/lampada.png",
-      titulo: "Campanha Outubro Rosa começa semana que vem",
-      resumo: "Haverá exames gratuitos e palestras em todos os postos de saúde.",
-      horario: "25/09, 11:00",
-      texto: "Participe da campanha Outubro Rosa para prevenção do câncer de mama. Haverá exames gratuitos e palestras de conscientização em todos os postos de saúde da cidade.",
-      local: "Todas as UBS",
-      data: "01/10/2025",
-      autor: "Secretaria Municipal de Saúde"
-    }
-  };
-
-  function abrirNotificacao(id) {
-    const n = notificacoesSidebar[id];
-    document.getElementById('notificacaoIcone').src = n.icone;
-    document.getElementById('notificacaoTituloSidebar').innerText = n.titulo;
-    document.getElementById('notificacaoResumoSidebar').innerText = n.resumo;
-    document.getElementById('notificacaoHorarioSidebar').innerText = n.horario;
-    document.getElementById('notificacaoTextoSidebar').innerText = n.texto;
-    document.getElementById('notificacaoLocalSidebar').innerText = n.local;
-    document.getElementById('notificacaoDataSidebar').innerText = n.data;
-    document.getElementById('notificacaoAutorSidebar').innerText = n.autor;
-    document.getElementById('notificacaoSidebar').style.display = 'block';
-    document.getElementById('notificacaoSidebarOverlay').style.display = 'block';
-    setTimeout(() => {
-      document.getElementById('notificacaoSidebar').style.right = '0';
-    }, 10);
-    document.body.style.overflow = 'hidden';
-  }
-  function fecharNotificacaoSidebar() {
-    document.getElementById('notificacaoSidebar').style.right = '-400px';
-    setTimeout(() => {
-      document.getElementById('notificacaoSidebar').style.display = 'none';
-      document.getElementById('notificacaoSidebarOverlay').style.display = 'none';
-      document.body.style.overflow = '';
-    }, 250);
-  }
-  function compartilharNotificacao() {
-    alert('Link para compartilhamento copiado!');
-  }
-</script>
-
-<style>
-.btn-outline-info.btn-sm.rounded-pill.mt-1.px-3:hover,
-.btn-outline-info.btn-sm.rounded-pill.mt-1.px-3:focus {
-  background: #2563eb !important;
-  color: #fff !important;
-  border-color: #2563eb !important;
-  transition: background 0.2s, color 0.2s;
-}
-.hover-shadow:hover {
-  box-shadow: 0 4px 24px #2563eb33 !important;
-  transition: box-shadow 0.2s;
-}
-</style>
 
 <!-- Cards em coluna -->
 <div class="card painel-card text-center p-3 mb-3" style="border-radius:18px; background:#fafdff;">
@@ -481,74 +459,6 @@
   </div>
 </div>
 
-<script>
-  // Dados fictícios das campanhas completas
-  const campanhas = {
-    campanha1: {
-      titulo: "Março Lilás: Prevenção do Câncer do Colo do Útero",
-      conteudo: `
-        <p><b>Categoria:</b> Prevenção</p>
-        <p><b>Data de publicação:</b> 25/09/2025</p>
-        <p><b>Visualizações:</b> 1.234</p>
-        <p>
-          A campanha Março Lilás visa conscientizar sobre a importância do exame preventivo do câncer do colo do útero. Durante todo o mês, as UBSs estarão realizando exames gratuitos e distribuindo materiais informativos.
-        </p>
-        <hr>
-        <b>Feedback de pessoas:</b>
-        <ul>
-          <li><b>Maria S.:</b> "Fui muito bem atendida, recomendo a todas!"</li>
-          <li><b>Juliana P.:</b> "Campanha essencial para nossa saúde."</li>
-        </ul>
-      `
-    },
-    campanha2: {
-      titulo: "Campanha Nacional de Vacinação contra Gripe",
-      conteudo: `
-        <p><b>Categoria:</b> Vacinação</p>
-        <p><b>Data de publicação:</b> 20/09/2025</p>
-        <p><b>Visualizações:</b> 2.045</p>
-        <p>
-          A vacinação contra gripe está disponível para crianças, idosos, gestantes e profissionais da saúde. Não perca o prazo e mantenha sua carteira de vacinação em dia!
-        </p>
-        <hr>
-        <b>Feedback de pessoas:</b>
-        <ul>
-          <li><b>Carlos M.:</b> "Vacinei toda a família, atendimento rápido."</li>
-          <li><b>Fernanda L.:</b> "Muito importante para evitar doenças."</li>
-        </ul>
-      `
-    },
-    campanha3: {
-      titulo: "Setembro Amarelo: Valorização da Vida",
-      conteudo: `
-        <p><b>Categoria:</b> Conscientização</p>
-        <p><b>Data de publicação:</b> 15/09/2025</p>
-        <p><b>Visualizações:</b> 3.012</p>
-        <p>
-          O Setembro Amarelo promove ações de valorização da vida e prevenção ao suicídio. Participe das palestras e procure apoio psicológico nas UBSs.
-        </p>
-        <hr>
-        <b>Feedback de pessoas:</b>
-        <ul>
-          <li><b>Lucas R.</b> "As palestras foram esclarecedoras."</li>
-          <li><b>Patrícia D.</b> "Muito bom saber que temos esse apoio."</li>
-        </ul>
-      `
-    }
-  };
-
-  function abrirCampanha(id) {
-    document.getElementById('campanhaTitulo').innerHTML = campanhas[id].titulo;
-    document.getElementById('campanhaConteudo').innerHTML = campanhas[id].conteudo;
-    document.getElementById('campanhaModal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  }
-  function fecharCampanha() {
-    document.getElementById('campanhaModal').style.display = 'none';
-    document.body.style.overflow = '';
-  }
-</script>
-
 <!-- Modal/Aba Flutuante de Campanha (direita) -->
 <div id="campanhaSidebar" style="display:none; position:fixed; top:0; right:0; width:420px; max-width:100vw; height:100vh; background:#fafdff; box-shadow:-4px 0 24px rgba(30,41,59,0.10); z-index:4000; transition:right 0.3s;">
   <div class="p-4" style="overflow-y:auto; height:100vh;">
@@ -601,192 +511,3 @@
   </div>
 </div>
 <div id="campanhaSidebarOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(30,41,59,0.10); z-index:3999;" onclick="fecharCampanhaSidebar()"></div>
-
-<script>
-const campanhasSidebar = {
-  campanha1: {
-    imagem: "<?=URL?>/public/img/marcoLilas.jpg",
-    titulo: "Março Lilás: Prevenção do Câncer do Colo do Útero",
-    resumo: "Campanha de prevenção e conscientização sobre o câncer do colo do útero.",
-    data: "01/03/2025 a 31/03/2025",
-    bairros: "Centro, Jardim das Palmeiras, Nova Esperança",
-    publico: "Mulheres de 25 a 64 anos",
-    ubs: "Centro de Saúde Altamiro Barroso",
-    horarios: "Seg a Sex: 07h às 17h<br>Sábado: 08h às 12h",
-    acoes: [
-      "Exames preventivos gratuitos",
-      "Palestras educativas",
-      "Distribuição de materiais informativos",
-      "Atendimento psicológico"
-    ],
-    contato: "Telefone: (69) 1234-5678<br>Email: altamiro@saude.gov.br",
-    comentarios: [
-      {nome: "Maria S.", texto: "Fui muito bem atendida, recomendo a todas!"},
-      {nome: "Juliana P.", texto: "Campanha essencial para nossa saúde."}
-    ]
-  },
-  campanha2: {
-    imagem: "<?=URL?>/public/img/vacina.jpg",
-    titulo: "Campanha Nacional de Vacinação contra Gripe",
-    resumo: "Vacinação contra gripe para públicos prioritários em toda a cidade.",
-    data: "20/09/2025 a 30/09/2025",
-    bairros: "Todos os bairros",
-    publico: "Crianças, idosos, gestantes, profissionais da saúde",
-    ubs: "Centro de Saúde Irmã Maria Agostinho",
-    horarios: "Seg a Sex: 08h às 16h<br>Sábado: 08h às 12h",
-    acoes: [
-      "Vacinação gratuita",
-      "Orientação sobre prevenção",
-      "Atualização da carteira de vacinação"
-    ],
-    contato: "Telefone: (69) 2345-6789<br>Email: agostinho@saude.gov.br",
-    comentarios: [
-      {nome: "Carlos M.", texto: "Vacinei toda a família, atendimento rápido."},
-      {nome: "Fernanda L.", texto: "Muito importante para evitar doenças."}
-    ]
-  },
-  campanha3: {
-    imagem: "<?=URL?>/public/img/setembroAmarelo.jpg",
-    titulo: "Setembro Amarelo: Valorização da Vida",
-    resumo: "Ações de valorização da vida e prevenção ao suicídio.",
-    data: "01/09/2025 a 30/09/2025",
-    bairros: "Centro, Tamandaré, Dez de Abril",
-    publico: "Toda a população",
-    ubs: "Centro de Saúde Carlos Chagas",
-    horarios: "Seg a Sex: 07h às 17h",
-    acoes: [
-      "Palestras sobre saúde mental",
-      "Rodas de conversa",
-      "Atendimento psicológico",
-      "Distribuição de materiais informativos"
-    ],
-    contato: "Telefone: (69) 3456-7890<br>Email: chagas@saude.gov.br",
-    comentarios: [
-      {nome: "Lucas R.", texto: "As palestras foram esclarecedoras."},
-      {nome: "Patrícia D.", texto: "Muito bom saber que temos esse apoio."}
-    ]
-  }
-};
-
-let campanhaAtual = null;
-
-function abrirCampanhaSidebar(id) {
-  campanhaAtual = id;
-  const c = campanhasSidebar[id];
-  document.getElementById('campanhaImagemSidebar').src = c.imagem;
-  document.getElementById('campanhaTituloSidebar').innerText = c.titulo;
-  document.getElementById('campanhaResumoSidebar').innerText = c.resumo;
-  document.getElementById('campanhaDataSidebar').innerText = c.data;
-  document.getElementById('campanhaBairrosSidebar').innerText = c.bairros;
-  document.getElementById('campanhaPublicoSidebar').innerText = c.publico;
-  document.getElementById('campanhaUBSSidebar').innerText = c.ubs;
-  document.getElementById('campanhaHorariosSidebar').innerHTML = c.horarios;
-  // Ações
-  let acoesHtml = '';
-  c.acoes.forEach(a => { acoesHtml += `<li>${a}</li>`; });
-  document.getElementById('campanhaAcoesSidebar').innerHTML = acoesHtml;
-  // Contato
-  document.getElementById('campanhaContatoSidebar').innerHTML = c.contato;
-  // Comentários
-  renderizarComentarios();
-  // Exibe a sidebar
-  document.getElementById('campanhaSidebar').style.display = 'block';
-  document.getElementById('campanhaSidebarOverlay').style.display = 'block';
-  setTimeout(() => {
-    document.getElementById('campanhaSidebar').style.right = '0';
-  }, 10);
-  document.body.style.overflow = 'hidden';
-}
-
-function fecharCampanhaSidebar() {
-  document.getElementById('campanhaSidebar').style.right = '-440px';
-  setTimeout(() => {
-    document.getElementById('campanhaSidebar').style.display = 'none';
-    document.getElementById('campanhaSidebarOverlay').style.display = 'none';
-    document.body.style.overflow = '';
-  }, 250);
-}
-
-// Comentários
-function renderizarComentarios() {
-  const comentariosDiv = document.getElementById('comentariosCampanhaSidebar');
-  const comentarios = campanhasSidebar[campanhaAtual].comentarios;
-  comentariosDiv.innerHTML = comentarios.length
-    ? comentarios.map(c => `<div class="mb-2"><b>${c.nome}:</b> <span>${c.texto}</span></div>`).join('')
-    : '<div class="text-muted">Nenhum comentário ainda.</div>';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('formComentarioCampanha');
-  if(form){
-    form.onsubmit = function(e){
-      e.preventDefault();
-      const input = document.getElementById('comentarioInput');
-      const texto = input.value.trim();
-      if(texto && campanhaAtual){
-        campanhasSidebar[campanhaAtual].comentarios.push({nome: "Você", texto});
-        input.value = '';
-        renderizarComentarios();
-      }
-    }
-  }
-});
-</script>
-
-<!-- Ações Rápidas -->
-<div class="container mb-4">
-  <div class="mb-2">
-    <h5 style="font-weight:800; color:#1e293b;">Ações Rápidas</h5>
-  </div>
-  <div class="row g-4">
-    <!-- Encontrar Posto -->
-    <div class="col-12 col-md-6">
-      <a href="<?=URL?>/paginas/postos" class="text-decoration-none">
-        <div class="card shadow-sm p-4 h-100 text-center hover-shadow"
-          style="border-radius:20px; background:#e0f2fe; border:1px solid #d6e6f5; cursor:pointer; transition:box-shadow 0.2s;">
-          <div style="background:#bae6fd; border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center; margin:0 auto 10px;">
-            <img src="<?=URL?>/public/img/localizacao.png" alt="Encontrar Posto" width="26">
-          </div>
-          <h6 style="font-weight:700; color:#1e293b;">Encontrar Posto</h6>
-        </div>
-      </a>
-    </div>
-    <!-- Emergência -->
-    <div class="col-12 col-md-6">
-    <a href="<?=URL?>/paginas/emergencia" class="text-decoration-none">
-      <div class="card shadow-sm p-4 h-100 text-center hover-shadow"
-        style="border-radius:20px; background:#fafdff; border:1px solid #d6e6f5; cursor:pointer; transition:box-shadow 0.2s;">
-        <div style="background:#e0e7ef; border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center; margin:0 auto 10px;">
-          <img src="<?=URL?>/public/img/alarme.png" alt="Emergência" width="26">
-        </div>
-        <h6 style="font-weight:700; color:#1e293b;">Emergência</h6>
-      </div>
-</a>
-    </div>
-    <!-- Suporte -->
-    <div class="col-12 col-md-6">
-      <a href="<?=URL?>/paginas/suporte" class="text-decoration-none">
-        <div class="card shadow-sm p-4 h-100 text-center hover-shadow"
-          style="border-radius:20px; background:#fafdff; border:1px solid #d6e6f5; cursor:pointer; transition:box-shadow 0.2s;">
-          <div style="background:#dbeafe; border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center; margin:0 auto 10px;">
-            <img src="<?=URL?>/public/img/suporte.png" alt="Suporte" width="26">
-          </div>
-          <h6 style="font-weight:700; color:#1e293b;">Suporte</h6>
-        </div>
-      </a>
-    </div>
-    <!-- Meu SUS Digital -->
-    <div class="col-12 col-md-6">
-      <a href="https://meususdigital.saude.gov.br/login" target="_blank" class="text-decoration-none">
-        <div class="card shadow-sm p-4 h-100 text-center hover-shadow"
-          style="border-radius:20px; background:#e0f2fe; border:1px solid #d6e6f5; cursor:pointer; transition:box-shadow 0.2s;">
-          <div style="background:#e0e7ef; border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center; margin:0 auto 10px;">
-            <img src="<?=URL?>/public/img/info.png" alt="Meu SUS Digital" width="26">
-          </div>
-          <h6 style="font-weight:700; color:#1e293b;">Meu SUS Digital</h6>
-        </div>
-      </a>
-    </div>
-  </div>
-
-</div>

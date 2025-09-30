@@ -100,19 +100,3 @@
     </ul>
   </div>
 </div>
-
-<script>
-// FAQ toggle
-document.querySelectorAll('.faq-btn').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var id = this.getAttribute('data-faq');
-    var content = document.getElementById(id);
-    if(content.style.display === 'none' || content.style.display === ''){
-      document.querySelectorAll('.faq-content').forEach(function(div){ div.style.display = 'none'; });
-      content.style.display = 'block';
-    } else {
-      content.style.display = 'none';
-    }
-  });
-});
-</script>

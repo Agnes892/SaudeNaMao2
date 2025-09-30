@@ -1,0 +1,151 @@
+/* ========================================
+   ESTILOS ESPECÍFICOS DA PÁGINA HOME
+   ======================================== */
+
+/* Botões de ação */
+.btn-outline-info.btn-sm.rounded-pill.mt-1.px-3:hover,
+.btn-outline-info.btn-sm.rounded-pill.mt-1.px-3:focus {
+  background: #2563eb !important;
+  color: #fff !important;
+  border-color: #2563eb !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Efeito de sombra no hover */
+.hover-shadow:hover {
+  box-shadow: 0 4px 24px #2563eb33 !important;
+  transition: box-shadow 0.2s;
+}
+
+/* Botão de notificações atrativo */
+.btn-notificacao:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+}
+
+.btn-notificacao:active {
+  transform: translateY(0px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+/* Animação pulsante para o badge */
+@keyframes pulse-notification {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#badgeNotificacao {
+  animation: pulse-notification 2s infinite;
+}
+
+/* Animação do sino balançando */
+@keyframes bell-shake {
+  0%, 100% { transform: rotate(0deg); }
+  10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
+  20%, 40%, 60%, 80% { transform: rotate(10deg); }
+}
+
+.btn-notificacao:hover img {
+  animation: bell-shake 0.8s ease-in-out;
+}
+
+/* Botão "Ver mais notificações" atrativo */
+.btn-ver-mais-notificacoes {
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 8px 20px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.btn-ver-mais-notificacoes:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  color: white !important;
+}
+
+.btn-ver-mais-notificacoes:active {
+  transform: translateY(0px) !important;
+  transition: all 0.1s ease !important;
+}
+
+/* Efeito de brilho no botão */
+.btn-ver-mais-notificacoes::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-ver-mais-notificacoes:hover::before {
+  left: 100%;
+}
+
+/* Ícone no botão "Ver mais" */
+.btn-ver-mais-notificacoes::after {
+  content: " →";
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.btn-ver-mais-notificacoes:hover::after {
+  transform: translateX(3px);
+}
+
+/* Estilos do Header */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+/* Efeito hover no logo */
+.navbar-brand:hover div {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Animação suave para o texto do título */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Aplicar animação ao título quando hover */
+.navbar-brand:hover + div div:first-child {
+  background-size: 200% 200% !important;
+  animation: gradient-shift 3s ease infinite !important;
+}
