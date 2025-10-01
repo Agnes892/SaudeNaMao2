@@ -61,9 +61,12 @@ echo '<hr>Último id: '.$db->ultimoIdInserido();
     <title> <?= APP_NOME ?></title>
 
     <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="<?=URL?>/public/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="<?=URL?>/public/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="<?=URL?>/public/img/logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?=URL?>/public/img/logo.png">
-    <link rel="shortcut icon" href="<?=URL?>/public/img/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?=URL?>/public/img/logo.png">
+    <link rel="manifest" href="<?=URL?>/public/site.webmanifest">
 
    <link rel="stylesheet" href="<?=URL?>/public/bootstrap/css/bootstrap.css"/>
    <link rel="stylesheet" href="<?=URL?>/public/css/estilos.css"/>
@@ -83,10 +86,41 @@ echo '<hr>Último id: '.$db->ultimoIdInserido();
 
 </head>
 <body>
-   <?php include '../app/Views/header.php'; ?>
-   <main class="container">
-      <?php new Rota(); ?>
-   </main>
-   <?php include '../app/Views/footer.php'; ?>
+   <?php 
+   // Verifica se é uma página standalone (sem layout)
+   $url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL);
+   $standalone_pages = [
+       'usuarios/loginPrincipal', 
+       'usuarios/cadastrar', 
+       'usuarios/painelAdmin',
+       'adminpanel/editarPagina',
+       'adminpanel/unidades',
+       'adminpanel/usuarios',
+       'adminpanel/configuracoes',
+       'adminpanel/api',
+       'adminpanel/gerarBackup'
+   ];
+   $is_standalone = false;
+   
+   if(isset($url)){
+       $url_clean = trim(rtrim($url, '/'));
+       // Verifica se está na lista de páginas standalone ou se começa com adminpanel
+       if(in_array($url_clean, $standalone_pages) || strpos($url_clean, 'adminpanel') === 0){
+           $is_standalone = true;
+       }
+   }
+   
+   if (!$is_standalone) {
+       include '../app/Views/header.php';
+       echo '<main class="container">';
+   }
+   
+   new Rota();
+   
+   if (!$is_standalone) {
+       echo '</main>';
+       include '../app/Views/footer.php';
+   }
+   ?>
 </body>
 </html>

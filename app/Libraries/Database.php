@@ -2,29 +2,61 @@
 
 class Database {
 
-    private $host = 'localhost';
-    private $usuario = 'root';
-    private $senha = '';
-    private $banco = 'framework';
-    private $porta = '3306';
+    private $host;
+    private $usuario;
+    private $senha;
+    private $banco;
+    private $porta;
     private $dbh;
     private $stmt;
 
     public function __construct()
     {
-        //fonte de dados ou DSN contém as informações necessárias para conectar ao banco de dados.
-        $dsn = 'mysql:host=localhost;port=3306;dbname=framework';
+        // Carrega as configurações do arquivo configuracao.php
+        $this->host = DB_HOST;
+        $this->usuario = DB_USER;
+        $this->senha = DB_PASS;
+        $this->banco = DB_NAME;
+        
         $opcoes = [
             //armazena em cache a conexão para ser reutilizada, evita a sobrecarga de uma nova conexão, resultando em um aplicativo mais rápido
             PDO::ATTR_PERSISTENT => true,
             //lança uma PDOException se ocorrer um erro 
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
-        try {
-            //cria a instancia do PDO
-            $this->dbh = new PDO($dsn, $this->usuario, $this->senha, $opcoes);
-        } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
+        
+        // Tenta diferentes configurações de porta
+        $portas = ['3306', '3307']; // Portas mais comuns do MySQL
+        $conectado = false;
+        
+        foreach ($portas as $porta) {
+            $this->porta = $porta;
+            
+            try {
+                // Primeiro tenta conectar sem especificar o banco para poder criá-lo
+                $dsn_base = "mysql:host={$this->host};port={$this->porta}";
+                $pdo_temp = new PDO($dsn_base, $this->usuario, $this->senha, $opcoes);
+                
+                // Verifica se o banco existe, se não, cria
+                $stmt = $pdo_temp->query("SHOW DATABASES LIKE '{$this->banco}'");
+                if ($stmt->rowCount() == 0) {
+                    $pdo_temp->exec("CREATE DATABASE `{$this->banco}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+                }
+                
+                // Agora conecta ao banco específico
+                $dsn = "mysql:host={$this->host};port={$this->porta};dbname={$this->banco}";
+                $this->dbh = new PDO($dsn, $this->usuario, $this->senha, $opcoes);
+                $conectado = true;
+                break;
+                
+            } catch (PDOException $e) {
+                // Se falhou nesta porta, tenta a próxima
+                continue;
+            }
+        }
+        
+        if (!$conectado) {
+            print "Error!: Não foi possível conectar ao banco de dados. Verifique se o MySQL está rodando e as configurações estão corretas.<br/>";
             die();
         }
     }// fim do contrutor

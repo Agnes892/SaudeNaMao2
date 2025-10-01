@@ -61,4 +61,21 @@ class Usuario
         return $this->db->resultado();
     }
 
+    public function checarLoginPaciente($cpf, $senha)
+    {
+        $this->db->query("SELECT * FROM usuarios WHERE cpf = :cpf");
+        $this->db->bind(":cpf", $cpf);
+
+        if ($this->db->resultado()) : 
+            $resultado = $this->db->resultado();
+            if(password_verify($senha, $resultado->senha)): 
+                return $resultado;
+            else:
+                return false;
+            endif;
+        else :
+            return false;
+        endif;
+    }
+
 }

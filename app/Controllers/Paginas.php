@@ -25,4 +25,7 @@ class Paginas extends Controllers{
     public function perfil() {
         $this->view('paginas/perfil');
     }
+    public function loginPrincipal() {
+        $this->view('usuarios/loginPrincipal');
+    }
 }//fim da classe Paginas

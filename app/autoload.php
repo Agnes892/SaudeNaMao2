@@ -8,7 +8,9 @@ spl_autoload_register(function ($classe){
     //lista de diretórios para buscar as classes
     $diretorios = [
         'Libraries',
-        'Helpers'
+        'Helpers',
+        'Controllers',
+        'Models'
     ];
     //percorre os diretórios em busca das classes
     foreach($diretorios as $diretorio):
